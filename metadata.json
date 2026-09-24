@@ -1,0 +1,6 @@
+{
+  "name": "StoryWonder - Kids AI Storybook & Narrator",
+  "description": "Magical kids storybook reader that reads stories aloud with Gemini TTS and generates vibrant page illustrations with Gemini Pro Image.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
