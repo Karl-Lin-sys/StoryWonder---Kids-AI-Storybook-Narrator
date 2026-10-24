@@ -1,3 +1,4 @@
+import { localApiOnly } from './local-api-guard.mjs';
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
@@ -10,6 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+app.use('/api', localApiOnly(() => PORT));
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json({ limit: '50mb' }));
@@ -446,6 +448,6 @@ if (!isProduction) {
   });
 }
 
-app.listen(Number(PORT), '0.0.0.0', () => {
+app.listen(Number(PORT), '127.0.0.1', () => {
   console.log(`StoryWonder server running on http://0.0.0.0:${PORT}`);
 });
